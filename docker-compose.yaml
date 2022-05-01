@@ -1,0 +1,8 @@
+services:
+#    nginx:
+        image: nginx
+        volumes:
+            - ./hosts:/etc/nginx/conf.d     
+            - ./www:/usr/share/nginx/html/www
+        ports:
+            - "8000:80"

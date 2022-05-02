@@ -1,8 +1,10 @@
+#version: "3.9"
 services:
-#    nginx:
-        image: nginx
-        volumes:
-            - ./hosts:/etc/nginx/conf.d     
-            - ./www:/usr/share/nginx/html/www
-        ports:
-            - "8000:80"
+#  web:
+    image: nginx
+    volumes:
+    - type: bind
+      source: ./things
+      target: ./www:/usr/share/nginx/html/www        
+    ports:
+    - "8000:80"

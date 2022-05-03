@@ -1,10 +1,9 @@
-#version: "3.9"
-services:
-#  web:
-    image: nginx
-    volumes:
-    - type: bind
-      source: ./things
-      target: ./www:/usr/share/nginx/html/www        
-    ports:
+web:
+  image: nginx
+  container_name: nginx1
+  ports:
     - "8000:80"
+  volumes:
+    - ./things/index.html:/usr/share/nginx/html/www/index.html
+    - ./things/default.conf:/etc/nginx/conf.d/default.conf
+  command: [nginx-debug, '-g', 'daemon off;'] #dont know
